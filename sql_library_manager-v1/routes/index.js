@@ -52,10 +52,13 @@ router.get('/books/:id', asyncHandler(async(req, res) => {
 
 router.post('/books/:id', asyncHandler(async(req, res) => {
   const book = await Book.findByPk(req.params.id);
-  console.log(req.body);
   await book.update(req.body);
-  console.log(req.body);
   res.redirect('/books');
 }))
 
+router.post('/books/:id/delete', asyncHandler(async(req, res) =>{
+  const book = await Book.findByPk(req.params.id);
+  await book.destroy();
+  res.redirect('/books');
+}))
 module.exports = router;
