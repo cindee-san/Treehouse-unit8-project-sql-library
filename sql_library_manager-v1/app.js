@@ -25,21 +25,27 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
 
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  next(createError(404));
-});
+//Error handler for requests to undefined routes 
+app.use((req, res, next) => {
+  var err = new Error('Oh we do not know where that page is. Please check the url and try again.')
+  // console.log('404 error handler called');
+  err.status = 404;
+  res.render('page-not-found', { err })
+  });
 
-// error handler
-app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+//global error handler
+app.use((err, req, res, next) => {
 
-  // render the error page
+  console.log('500 error being handled');
+  err.status = 500;
+  err.message = `Oops!  It looks like something went wrong on the server.`
+  console.log(err.status);
+  console.log(err.message);
   res.status(err.status || 500);
-  res.render('error');
+  res.render('error', { err });
+
 });
+
 
 (async () => {
   try {
