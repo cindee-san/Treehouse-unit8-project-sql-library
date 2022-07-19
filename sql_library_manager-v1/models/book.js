@@ -68,10 +68,11 @@ module.exports = (sequelize, DataTypes) => {
       },
     },
   }, {
-    sequelize,
-    timestamps: false, // disable timestamps
+    // timestamps: true, // disable timestamps
+    // tableName: 'Books',
     modelName: 'Book',
-    paranoid: true, // enable "soft" deletes
+    // paranoid: false, // enable "soft" deletes
+    sequelize
   });
   return Book;
 };

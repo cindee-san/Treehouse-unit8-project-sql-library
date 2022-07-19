@@ -15,7 +15,7 @@ form(action="/books/new", method="post")
     input#genre(name='genre' type='text' value=book.genre)
   p
     label(for='year') Year
-    input#year(name='year' type='text' value=book.year)
+    input#year(name='year' type='integer' value=book.year)
   p
     input(type='submit' value='Create New Book')
   p
