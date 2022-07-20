@@ -3,6 +3,12 @@ head
   title New Book
   link(rel='stylesheet' href='../stylesheets/style.css')
 h1 New Book 
+
+if(error)
+  h2.error Oh Geez!
+    ul.error
+      li #{error.message}
+ 
 form(action="/books/new", method="post")
   p
     label(for='title') Title

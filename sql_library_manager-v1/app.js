@@ -28,7 +28,7 @@ app.use('/users', usersRouter);
 //Error handler for requests to undefined routes 
 app.use((req, res, next) => {
   var err = new Error('Oh we do not know where that page is. Please check the url and try again.')
-  // console.log('404 error handler called');
+  console.log('404 error handler called');
   err.status = 404;
   res.render('page-not-found', { err })
   });

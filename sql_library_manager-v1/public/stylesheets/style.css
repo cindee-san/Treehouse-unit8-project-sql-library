@@ -92,6 +92,11 @@ input[type=text] {
   width: 300px;
 }
 
+input:focus {
+  background: rgba(255, 255, 255, 1);
+  border-color:  rgb(9, 73, 250);
+}
+
 .error {
   color: rgb(236, 15, 15);
 }
