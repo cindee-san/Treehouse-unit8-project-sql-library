@@ -44,28 +44,12 @@ module.exports = (sequelize, DataTypes) => {
     },
     genre: {
       type:DataTypes.STRING,
-      allowNull: false,
-      validate: { 
-        notNull: {
-          msg: 'Please provide a value for "genre"',
-        },
-        notEmpty: {
-          msg: 'Please provide a value for "genre"',
-        }
-      },
+      allowNull: true,
     },
     year: {
       type:DataTypes.INTEGER,
-      allowNull: false,
-      validate: { 
-        notNull: {
-          msg: 'Please provide a value for "year"',
-        },
-        min: { 
-          args: 1,
-          msg: 'Please provide a value greater than "0" for "year"',
-        },
-      },
+      allowNull: true,
+     
     },
   }, {
     // timestamps: true, // disable timestamps
